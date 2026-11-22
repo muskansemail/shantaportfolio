@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taspia Hossen | Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0a1f;
+    --primary:#a855f7;
+    --secondary:#ec4899;
+    --text:#f5f3ff;
+    --muted:#a9a3c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(110px);z-index:0}
+  .hero::before{width:420px;height:420px;background:var(--primary);opacity:.35;top:-120px;left:-100px}
+  .hero::after{width:380px;height:380px;background:var(--secondary);opacity:.28;bottom:-120px;right:-80px}
+
+  /* Navbar */
+  nav{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:24px 8%}
+  .logo{font-size:22px;font-weight:800;letter-spacing:.5px}
+  .logo span{color:var(--secondary)}
+  .menu{display:flex;gap:34px;list-style:none}
+  .menu a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;transition:.3s}
+  .menu a:hover{color:#fff}
+  .nav-btn{padding:10px 24px;border-radius:30px;border:1.5px solid var(--primary);color:#fff;text-decoration:none;font-size:14px;font-weight:600;transition:.3s}
+  .nav-btn:hover{background:var(--primary)}
+
+  /* Content */
+  .hero-content{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:space-between;gap:50px;padding:20px 8% 60px}
+  .hero-text{flex:1;max-width:580px}
+  .tag{display:inline-block;padding:8px 18px;border-radius:30px;background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.4);color:#d8b4fe;font-size:13px;font-weight:500;margin-bottom:22px}
+  .hero-text h3{font-size:22px;font-weight:500;color:var(--muted);margin-bottom:6px}
+  .hero-text h1{font-size:62px;line-height:1.1;font-weight:800;margin-bottom:14px}
+  .hero-text h1 span{background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-text h2{font-size:26px;font-weight:600;margin-bottom:20px}
+  .hero-text p{color:var(--muted);line-height:1.8;font-size:15.5px;margin-bottom:32px}
+  .buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+  .btn{padding:14px 34px;border-radius:40px;font-weight:600;font-size:15px;text-decoration:none;transition:.3s}
+  .btn-primary{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 10px 30px rgba(168,85,247,.4)}
+  .btn-primary:hover{transform:translateY(-3px)}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.25);color:#fff}
+  .btn-outline:hover{background:rgba(255,255,255,.08)}
+
+  .stats{display:flex;gap:40px}
+  .stat h4{font-size:30px;font-weight:800}
+  .stat h4 span{color:var(--secondary)}
+  .stat p{font-size:13px;margin:0;color:var(--muted)}
+
+  /* Photo */
+  .hero-photo{flex:1;display:flex;justify-content:center;position:relative}
+  .photo-wrap{position:relative;width:400px;height:480px}
+  .photo-frame{position:absolute;inset:0;border-radius:200px 200px 28px 28px;background:linear-gradient(160deg,rgba(168,85,247,.55),rgba(236,72,153,.45));padding:6px}
+  .photo-inner{width:100%;height:100%;border-radius:194px 194px 22px 22px;overflow:hidden;background:#1b1233}
+  .photo-inner img,.photo-inner svg{width:100%;height:100%;object-fit:cover;display:block}
+  .ring{position:absolute;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(168,85,247,.35);top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 30s linear infinite}
+  @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+  .badge{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);font-size:13px;font-weight:600;animation:float 4s ease-in-out infinite}
+  .badge small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  .badge i{font-style:normal;font-size:22px}
+  .b1{top:50px;left:-50px}
+  .b2{bottom:70px;right:-40px;animation-delay:1.5s}
+  @keyframes float{50%{transform:translateY(-12px)}}
+
+  /* Responsive */
+  @media(max-width:950px){
+    .menu{display:none}
+    .hero-content{flex-direction:column-reverse;text-align:center;padding-top:10px}
+    .hero-text h1{font-size:46px}
+    .buttons,.stats{justify-content:center}
+    .photo-wrap{width:300px;height:370px}
+    .ring{width:350px;height:350px}
+    .b1{left:-20px}.b2{right:-20px}
+  }
+  @media(max-width:480px){
+    .hero-text h1{font-size:38px}
+    .hero-text h2{font-size:20px}
+    .stats{gap:22px}
+    .badge{padding:8px 12px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="home">
+
+  <nav>
+    <div class="logo">Shanta<span>.</span></div>
+    <ul class="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+    </ul>
+    <a href="#contact" class="nav-btn">Hire Me</a>
+  </nav>
+
+  <div class="hero-content">
+
+    <!-- Text -->
+    <div class="hero-text">
+      <span class="tag">🎨 Available for freelance work</span>
+      <h3>Hello, I'm</h3>
+      <h1><span>Taspia Hossen</span></h1>
+      <h2>Creative Graphic Designer</h2>
+      <p>
+        I have been working in graphic design for 1 year. I create logos, social media posts,
+        banners and brand identities that make your business stand out and look professional.
+      </p>
+      <div class="buttons">
+        <a href="#work" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><h4>1<span>+</span></h4><p>Year Experience</p></div>
+        <div class="stat"><h4>50<span>+</span></h4><p>Projects Done</p></div>
+        <div class="stat"><h4>30<span>+</span></h4><p>Happy Clients</p></div>
+      </div>
+    </div>
+
+    <!-- Photo -->
+    <div class="hero-photo">
+      <div class="photo-wrap">
+        <div class="ring"></div>
+        <div class="photo-frame">
+          <div class="photo-inner">
+
+            <!--
+              আসল ছবি বসাতে চাইলে নিচের পুরো <svg>...</svg> মুছে দিয়ে এটা বসান:
+              <img src="shanta.jpg" alt="Shanta Akter">
+            -->
+            <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" aria-label="Demo portrait">
+              <defs>
+                <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#3b1f6e"/><stop offset="1" stop-color="#8b2f7a"/>
+                </linearGradient>
+                <linearGradient id="dress" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#a855f7"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="480" fill="url(#bg)"/>
+              <circle cx="320" cy="90" r="60" fill="#ffffff" opacity=".07"/>
+              <circle cx="70" cy="380" r="80" fill="#ffffff" opacity=".06"/>
+              <!-- hair back -->
+              <path d="M110 230 C95 120 140 70 200 70 C260 70 305 120 290 230 C295 320 300 380 300 400 L100 400 C100 380 105 320 110 230Z" fill="#1a0f14"/>
+              <!-- shoulders / dress -->
+              <path d="M40 480 C45 400 110 365 200 365 C290 365 355 400 360 480Z" fill="url(#dress)"/>
+              <!-- neck -->
+              <rect x="170" y="300" width="60" height="80" rx="24" fill="#e8b192"/>
+              <path d="M170 335 Q200 360 230 335 L230 350 Q200 378 170 350Z" fill="#d49b7b"/>
+              <!-- face -->
+              <ellipse cx="200" cy="225" rx="78" ry="95" fill="#f1bf9f"/>
+              <!-- ears -->
+              <ellipse cx="122" cy="232" rx="10" ry="16" fill="#e8b192"/>
+              <ellipse cx="278" cy="232" rx="10" ry="16" fill="#e8b192"/>
+              <!-- hair front -->
+              <path d="M120 215 C115 130 160 100 205 105 C250 108 285 135 280 215 C262 170 235 145 200 143 C165 145 135 170 120 215Z" fill="#1a0f14"/>
+              <!-- eyebrows -->
+              <path d="M150 192 Q168 182 186 192" stroke="#1a0f14" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M214 192 Q232 182 250 192" stroke="#1a0f14" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <!-- eyes -->
+              <ellipse cx="168" cy="220" rx="11" ry="8" fill="#fff"/>
+              <ellipse cx="232" cy="220" rx="11" ry="8" fill="#fff"/>
+              <circle cx="168" cy="221" r="6" fill="#2b1810"/>
+              <circle cx="232" cy="221" r="6" fill="#2b1810"/>
+              <circle cx="170" cy="219" r="2" fill="#fff"/>
+              <circle cx="234" cy="219" r="2" fill="#fff"/>
+              <!-- nose -->
+              <path d="M200 228 Q194 252 202 256" stroke="#d49b7b" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <!-- cheeks -->
+              <circle cx="152" cy="255" r="14" fill="#ec4899" opacity=".22"/>
+              <circle cx="248" cy="255" r="14" fill="#ec4899" opacity=".22"/>
+              <!-- smile -->
+              <path d="M172 276 Q200 302 228 276 Q200 288 172 276Z" fill="#c2415f"/>
+              <!-- earrings -->
+              <circle cx="122" cy="256" r="5" fill="#fbbf24"/>
+              <circle cx="278" cy="256" r="5" fill="#fbbf24"/>
+            </svg>
+
+          </div>
+        </div>
+
+        <div class="badge b1"><i>✨</i><div>Brand Identity<small>Logo &amp; Branding</small></div></div>
+        <div class="badge b2"><i>🖌️</i><div>Social Media<small>Posts &amp; Banners</small></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
